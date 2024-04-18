@@ -1,0 +1,26 @@
+<p class="text-center text-black">Cart({{cartservice.myCartArray.length}})</p>
+<section>
+  <div class="container text-center py-1">
+    <div class="row g-5">
+      <div class="col-12 col-md-12 col-lg-4 col-sm-12 col-xl-4" *ngFor="let item of allBooks ">
+        <div class="d-flex px-3 shadow py-2">
+          <!-- card img -->
+          <img
+            alt="GIF" 
+            class="d-md-block d-none img-fluid m-1 p-1 rounded-2"
+            width="100px"
+            src="../../../assets/book.avif"
+            
+          />
+          <div>
+            <h6 class="mb-3 ">{{item.name}}</h6>
+            <h6 class="mb-3 ">{{item.price}}</h6>
+            <h6 class="mb-3 ">{{item.publishDate}}</h6>
+            <h6 class="mb-3 ">{{item.category}}</h6>
+            <button class="btn btn-info btn-sm" (click)="sendDetails(item)">Add To Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
