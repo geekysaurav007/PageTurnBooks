@@ -2,3 +2,8 @@
     border-radius: 5px;
     border: 2px solid rgb(22, 209, 241);
 }
+@media (max-width: 768px) {
+    .common-text {
+        font-size: 10px !important; /* Adjust font size for smaller devices */
+    }
+}

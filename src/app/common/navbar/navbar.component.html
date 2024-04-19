@@ -27,8 +27,11 @@
         <li class="nav-item">
           <a class="nav-link text-white" href="#project">Projects</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item"  *ngIf="!isUserLoggedIn()">
           <a class="nav-link text-white" href="login">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="isUserLoggedIn()">
+          <a class="nav-link text-white" (click)="signOut()">signOut</a>
         </li>
       </ul>
     </div>

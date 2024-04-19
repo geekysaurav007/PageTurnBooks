@@ -1,0 +1,8 @@
+input{
+    width: 30rem;
+}
+@media (max-width: 768px) {
+    input {
+        width: 10rem !important; /* Adjust font size for smaller devices */
+    }
+}
