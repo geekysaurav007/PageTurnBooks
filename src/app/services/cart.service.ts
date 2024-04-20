@@ -5,13 +5,21 @@ import { Injectable } from '@angular/core';
 })
 export class CartService {
   public myCartArray: any = [];
+  public currentCartLength:any
   constructor() {}
   addToCart(data: any) {
-    this.myCartArray.push({
-      name: data.name,
-      publishDate: data.publishDate,
-      price: data.price,
-      category: data.category,
-    });
+    let cart=this.getCartItems()
+    cart.push(data)
+    this.updateCart(cart)
+  }
+  getCartItems(): any[] {
+    const cartItems = localStorage.getItem('cart');
+    return cartItems ? JSON.parse(cartItems) : [];
+  }
+  updateCart(cart:any[]){
+    localStorage.setItem('cart',JSON.stringify(cart))
+  }
+  clearCart(){
+    localStorage.removeItem('cart')
   }
 }
