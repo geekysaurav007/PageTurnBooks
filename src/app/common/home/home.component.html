@@ -56,7 +56,7 @@
               publishDate:
             </p>
             <p class="text-capitalize fw-light m-3 p-3 common-text">
-              Category_id:
+              Category_name:
             </p>
           </div>
           <div>
@@ -65,14 +65,14 @@
             >
               {{ item.name }}
             </h6>
-            <h6 class="m-3 p-3 sm-auto fs-5 common-text">
+            <h6 class="m-3 p-3 sm-auto fs-6 common-text">
               {{ item.price }}
             </h6>
             <h6 class="m-3 p-3 sm-auto text-sm fs-5 common-text">
               {{ item.publishDate }}
             </h6>
-            <h6 class="m-3 p-3 font-monospace fs-6 common-text">
-              {{ item.category }}
+            <h6 class="m-3 p-3 font-monospace fs-6 fw-bolder common-text">
+              {{ item.category.name }}
             </h6>
             <!-- <button class="btn btn-info btn-sm" (click)="sendDetails(item)">Add To Cart</button> -->
           </div>

@@ -9,6 +9,9 @@
         /* Adjust font size for smaller devices */
     }
 }
+.common-text{
+    font-size: 16px;
+}
 
 svg:hover {
     cursor: pointer;

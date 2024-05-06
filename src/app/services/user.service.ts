@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as jwt_decode from 'jwt-decode';
 import { Router } from '@angular/router';
 import { CartService } from './cart.service';
+import { error } from 'node:console';
 
 @Injectable({
   providedIn: 'root',
@@ -33,6 +34,8 @@ export class UserService {
           this.isLoogedIn = true;
           this.router.navigate(['/home']);
         }
+      },(error)=>{
+        alert(error.error.message)
       });
   }
   reloadUser() {
