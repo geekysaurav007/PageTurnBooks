@@ -12,29 +12,29 @@ import { UserService } from '../../services/user.service';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
-export class NavbarComponent  {
+export class NavbarComponent {
   isAdmin: boolean = false;
   cartLength!: number;
   constructor(
     private routerHelper: Router,
     public cartservice: CartService,
-    public userService: UserService
   ) {}
   loginButton() {
     this.routerHelper.navigate(['/login']);
   }
-  signOut(){
-    localStorage.clear()
-    this.isUserLoggedIn()
-    this.routerHelper.navigate(['/login'])
+  signUpButton() {
+    this.routerHelper.navigate(['/home']);
   }
-  isUserLoggedIn():boolean{
-    if(localStorage.getItem('isLoggedin')=="true"){
-      return true
-    }
-    else{
-      return false
+  signOut() {
+    localStorage.clear();
+    this.isUserLoggedIn();
+    this.routerHelper.navigate(['/login']);
+  }
+  isUserLoggedIn(): boolean {
+    if (localStorage.getItem('isLoggedin') == 'true') {
+      return true;
+    } else {
+      return false;
     }
   }
-  
 }

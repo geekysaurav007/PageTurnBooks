@@ -1,0 +1,131 @@
+<div
+  class="container d-flex flex-column justify-content-center align-items-center mt-3 mb-0"
+>
+  <div class="col-lg-12 col-sm-12">
+    <div class="mb-3">
+      <h3 class="text-center fw-bolder">SignUp form</h3>
+      <hr class="m-1" />
+    </div>
+  </div>
+  <!-- name,email,phone,password,repassword -->
+  <div
+    class="container d-flex flex-column justify-content-center align-items-center form-box mt-1 mb-3"
+  >
+    <hr class="m-1" />
+    <form
+      [formGroup]="signUpForm"
+      (ngSubmit)="signUp(signUpForm.value)"
+      class="mt-3 mb-3"
+    >
+      <div
+        class="row d-flex d-flex flex-column column-gap-3 mb-3 justify-content-between align-items-center"
+      >
+        <div class="col-lg-12">
+          <div class="mb-3">
+            <label for="Full-Name" class="form-label">Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="Full-Name"
+              placeholder="Enter your Name"
+              formControlName="name"
+            />
+            <span
+              class="text-center"
+              style="color: red"
+              *ngIf="signUpForm.get('name')?.invalid"
+              >enter name
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="mb-3">
+            <label for="Email" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="Email"
+              placeholder="Enter your email"
+              formControlName="email"
+            />
+          </div>
+          <span
+            class="text-center"
+            style="color: red"
+            *ngIf="signUpForm.get('email')?.invalid"
+            >enter name
+          </span>
+        </div>
+        <div class="col-lg-12">
+          <div class="mb-3">
+            <label for="Phone" class="form-label">Phone</label>
+            <input
+              type="text"
+              class="form-control"
+              id="Phone"
+              placeholder="Enter your number"
+              formControlName="phone"
+            />
+          </div>
+          <span
+            class="text-center"
+            style="color: red"
+            *ngIf="signUpForm.get('phone')?.invalid"
+            >enter number
+          </span>
+        </div>
+        <div class="col-lg-12">
+          <div class="mb-3">
+            <label for="Password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="Password"
+              placeholder="Enter your password"
+              formControlName="password"
+            />
+          </div>
+          <span
+            class="text-center"
+            style="color: red"
+            *ngIf="signUpForm.get('password')?.invalid"
+            >enter password
+          </span>
+        </div>
+        <div class="col-lg-12">
+          <div class="mb-3">
+            <label for="Re-Password" class="form-label">Re-Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="Re-Password"
+              placeholder="repassword"
+              formControlName="repassword"
+            />
+          </div>
+          <span
+            class="text-center"
+            style="color: red"
+            *ngIf="signUpForm.get('repassword')?.invalid"
+            >enter repassword
+          </span>
+        </div>
+        <div class="col-lg-12 col-sm-12">
+          <div class="mb-3">
+            <button
+              type="submit"
+              class="btn btn-info"
+              [disabled]="signUpForm.invalid"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <hr class="m-1" />
+    <button class="btn btn-info text-wrap mt-1 mb-4" (click)="signIn()">
+      Already User..!SignIn
+    </button>
+  </div>
+</div>
