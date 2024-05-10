@@ -37,9 +37,6 @@ export class UserService {
             this.router.navigate(['/home']);
           }
         },
-        (error) => {
-          alert(error.error.message);
-        }
       );
   }
   reloadUser() {
