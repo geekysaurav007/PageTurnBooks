@@ -1,0 +1,33 @@
+@media (max-width: 768px) {
+    .common-text {
+        font-size: 10px !important;
+        /* Adjust font size for smaller devices */
+    }
+}
+
+.common-text {
+    font-size: 16px;
+}
+
+svg:hover {
+    cursor: pointer;
+}
+.image{
+    width: 200px; /* Set the width of each card */
+    height: 200px; /* Set the height of each card */
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px;
+    display: inline-block;
+}
+
+img {
+    width: 35rem !important;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    img {
+        width: 20rem !important;
+    }
+}

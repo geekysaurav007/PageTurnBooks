@@ -37,4 +37,14 @@ export class NavbarComponent {
       return false;
     }
   }
+  myCart(){
+    let cartLength=localStorage.getItem('cart')
+    let length=cartLength?JSON.parse(cartLength).length:0
+    if(length){
+      this.routerHelper.navigate(['my-cart'])
+    }
+    else{
+      alert(`No Items in Cart`)
+    }
+  }
 }

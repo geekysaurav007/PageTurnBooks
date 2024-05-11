@@ -24,20 +24,19 @@ export class UserService {
         `https://e-commerce-bookstore-iom7.onrender.com/api/user/login`,
         data
       )
-      .subscribe(
-        (res: any) => {
-          let data: any = jwt_decode.jwtDecode(res.token);
-          console.warn(data);
-          if (data?.isAdmin == 'false') {
-            localStorage.setItem('user', 'true');
-            localStorage.setItem('id', data.id);
-            localStorage.setItem('isLoggedin', 'true');
-            this.isUser = true;
-            this.isLoogedIn = true;
-            this.router.navigate(['/home']);
-          }
-        },
-      );
+      .subscribe((res: any) => {
+        let data: any = jwt_decode.jwtDecode(res.token);
+        console.warn(data);
+        if (data?.isAdmin == 'false') {
+          localStorage.setItem('user', 'true');
+          localStorage.setItem('id', data.id);
+          localStorage.setItem('isLoggedin', 'true');
+          localStorage.setItem('token', res.token);
+          this.isUser = true;
+          this.isLoogedIn = true;
+          this.router.navigate(['/home']);
+        }
+      });
   }
   reloadUser() {
     if (localStorage.getItem('isLoggedin') == 'true') {
@@ -46,10 +45,14 @@ export class UserService {
       this.router.navigate(['/home']);
     }
   }
-  singnUp(data: any) {
+  singnUp(data: SignUp) {
     return this.http.post(
       `https://e-commerce-bookstore-iom7.onrender.com/api/user/signup`,
       data
     );
+  }
+  getHeaders(): HttpHeaders {
+    const token: string | null = localStorage.getItem('auth');
+    return new HttpHeaders().set('Authorization', 'Bearer ' + token);
   }
 }

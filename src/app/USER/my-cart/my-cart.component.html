@@ -1,28 +1,23 @@
-
-<section>
-  <div class="container text-center py-1">
-    <div class="row g-5">
+<section class="mt-5">
+  <div class="container text-center">
+    <div class="row">
       <div
         class="col-12 col-md-12 col-lg-6 col-sm-12 col-xl-6 col-xs-6"
-        *ngFor="let item of allBooks"
+        *ngFor="let item of cart"
       >
         <div
           class="d-flex align-items-center justify-content-around px-2 shadow py-2 sm-auto xs-auto"
         >
           <!-- card img -->
           <div
-            class="d-flex flex-column column-gap-3 mb-3 justify-content-between align-items-center"
+            class="d-flex flex-column column-gap-2 mb-3 justify-content-between align-items-center image"
           >
             <img
               alt="GIF"
-              class="d-md-block  img-fluid m-1 p-1 rounded-2"
-              width="55px"
-              lazy
-              src="{{bookservice.baseUrl}}/images/{{item.productImage}}"
+              class="d-md-block img-fluid m-1 p-1 rounded-2"
+              width="40px"
+              src="{{ bookservice.baseUrl }}/images/{{ item.productImage }}"
             />
-            <hr />
-            <button class="btn btn-info mt-1 mb-1 text-wrap button-91" (click)="addToCart(item)">AddToCart</button>
-           <button class="btn btn-outline-danger mt-2 mb-1"  (click)="clearCart()">ClearCart</button>
           </div>
           <div>
             <p class="text-capitalize text-sm fw-light m-3 p-3 common-text">
@@ -35,6 +30,9 @@
             <p class="text-capitalize fw-light m-3 p-3 common-text">
               Category_name:
             </p>
+            <p class="text-capitalize fw-light m-3 p-3 common-text">
+                Quantity:
+              </p>
           </div>
           <div>
             <h6
@@ -51,10 +49,13 @@
             <h6 class="m-3 p-3 font-monospace fs-6 fw-bolder common-text">
               {{ item.category.name }}
             </h6>
-            <!-- <button class="btn btn-info btn-sm" (click)="sendDetails(item)">Add To Cart</button> -->
+            <input type="number" required (input)="upDateQuantity($event,item._id)">
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div class="container text-center">
+    <button class="btn btn-success mt-3 pt-2" (click)="placeOrder()">Place Order</button>
   </div>
 </section>

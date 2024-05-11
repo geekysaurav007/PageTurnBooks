@@ -13,7 +13,7 @@ import { UserService } from '../../services/user.service';
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
-[x: string]: any;
+  [x: string]: any;
   allBooks: any = [];
   public myCart: any = [];
   constructor(
@@ -29,8 +29,7 @@ export class HomeComponent implements OnInit {
   getAllBooks() {
     this.bookservice.getAllBooks().subscribe((result: any) => {
       this.allBooks = result.result;
-      console.log(this.allBooks)
-
+      console.log(this.allBooks);
     }),
       (error: any) => {
         console.warn(error);
@@ -44,13 +43,8 @@ export class HomeComponent implements OnInit {
     this.loadCart();
   }
   addToCart(data: any) {
+    alert(`Item added in cart:${data.name}`)
     this.cartservice.addToCart(data);
     this.loadCart();
-    this.cartservice.currentCartLength = this.myCart.length;
-  }
-  getImage(data:any){
-    this.bookservice.getImage(data).subscribe((res:any)=>{
-      console.log(res)
-    })
   }
 }

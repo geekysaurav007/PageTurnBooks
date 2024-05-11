@@ -1,5 +1,5 @@
 import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
-import { Observable, catchError, throwError } from 'rxjs';
+import { catchError, throwError } from 'rxjs';
 
 export const interceptInterceptor: HttpInterceptorFn = (req, next) => {
   let errorMessage = {
@@ -17,7 +17,7 @@ export const interceptInterceptor: HttpInterceptorFn = (req, next) => {
         errorMessage.status=err.status
        }
       return throwError(() => {
-        alert(`you have error: ${errorMessage.errorMessage}`);
+        alert(`you have error: ${errorMessage.errorMessage} stauscode: ${errorMessage.status}`);
       });
     })
   );
