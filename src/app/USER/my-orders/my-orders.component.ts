@@ -11,15 +11,15 @@ import { OrderService } from '../../services/order.service';
 export class MyOrdersComponent implements OnInit{
   constructor(private route:ActivatedRoute,private orderservice:OrderService){}
   user_id!:string|null
+  myOrders:any=[]
   ngOnInit() {
    this.user_id=this.route.snapshot.paramMap.get('id')
    this.getMyOrders(this.user_id)
   }
  getMyOrders(id:string|null){
   this.orderservice.getMyOrders().subscribe((res:any)=>{
-    console.warn(res)
+    this.myOrders=res
     // store in array vand itertate
   })
-  console.log(`my ordersssss ${id}`)
  }
 }
