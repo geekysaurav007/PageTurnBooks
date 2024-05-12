@@ -5,6 +5,7 @@ import { SignUpComponent } from './common/sign-up/sign-up.component';
 import { MyCartComponent } from './USER/my-cart/my-cart.component';
 import { ThankYouComponent } from './common/thank-you/thank-you.component';
 import { MyOrdersComponent } from './USER/my-orders/my-orders.component';
+import { authGuard } from './Guards/auth.guard';
 
 
 
@@ -13,7 +14,7 @@ export const routes: Routes = [
     {path:'home',component:HomeComponent},
     {path:'',component:HomeComponent},
     {path:'signUp',component:SignUpComponent},
-    {path:'my-cart',component:MyCartComponent},
-    {path:'confirm',component:ThankYouComponent},
-    {path:'myorder/:id',component:MyOrdersComponent}
+    {path:'my-cart',component:MyCartComponent,canActivate:[authGuard]},
+    {path:'confirm',component:ThankYouComponent,canActivate:[authGuard]},
+    {path:'myorder/:id',component:MyOrdersComponent,canActivate:[authGuard]}
 ];

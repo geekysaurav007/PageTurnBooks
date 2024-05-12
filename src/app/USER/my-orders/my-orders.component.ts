@@ -20,6 +20,6 @@ export class MyOrdersComponent implements OnInit{
   this.orderservice.getMyOrders().subscribe((res:any)=>{
     this.myOrders=res
     // store in array vand itertate
-  })
+  }) 
  }
 }
