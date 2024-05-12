@@ -6,6 +6,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   if(userFlag){
     return true
   }else{
+    alert(`Please Login first.........!!`)
     return false
   }
 
