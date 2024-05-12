@@ -15,10 +15,7 @@ import { UserService } from '../../services/user.service';
 export class NavbarComponent {
   isAdmin: boolean = false;
   cartLength!: number;
-  constructor(
-    private routerHelper: Router,
-    public cartservice: CartService,
-  ) {}
+  constructor(private routerHelper: Router, public cartservice: CartService) {}
   loginButton() {
     this.routerHelper.navigate(['/login']);
   }
@@ -37,14 +34,17 @@ export class NavbarComponent {
       return false;
     }
   }
-  myCart(){
-    let cartLength=localStorage.getItem('cart')
-    let length=cartLength?JSON.parse(cartLength).length:0
-    if(length){
-      this.routerHelper.navigate(['my-cart'])
+  myCart() {
+    let cartLength = localStorage.getItem('cart');
+    let length = cartLength ? JSON.parse(cartLength).length : 0;
+    if (length) {
+      this.routerHelper.navigate(['my-cart']);
+    } else {
+      alert(`No Items in Cart`);
     }
-    else{
-      alert(`No Items in Cart`)
-    }
+  }
+  myOrders(){
+    let id=localStorage.getItem('id')
+    this.routerHelper.navigate([`myorder/${id}`])
   }
 }

@@ -36,6 +36,9 @@
         <li class="nav-item" *ngIf="isUserLoggedIn()">
           <a class="nav-link text-white" (click)="myCart()">MyCart</a>
         </li>
+        <li class="nav-item" *ngIf="isUserLoggedIn()">
+          <a class="nav-link text-white" (click)="myOrders()">MyOrders</a>
+        </li>
         <!-- <li class="nav-item" *ngIf="isUserLoggedIn()">
           <a class="nav-link text-white">myCart({{this.cartservice.currentCartLength}})</a>
         </li> -->

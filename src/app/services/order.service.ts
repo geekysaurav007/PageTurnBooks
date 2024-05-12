@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class OrderService {
   constructor(private http: HttpClient) {}
+  base_url:string=`https://e-commerce-bookstore-iom7.onrender.com/api/`
 
   placeOrder(data: any) {
     return this.http.post(
@@ -21,4 +22,9 @@ export class OrderService {
     console.log('Bearer ' + token)
     return new HttpHeaders().set('Authorization', 'Bearer ' + token);
   }
+
+  getMyOrders(){
+    return this.http.get(`${this.base_url}order/myorders`,{headers:this.getHeaders()})
+  }
+
 }
