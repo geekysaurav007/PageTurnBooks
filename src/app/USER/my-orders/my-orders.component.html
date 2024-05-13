@@ -1,1 +1,27 @@
-<p>my-orders works!</p>
+<div class="table-responsive-sm table-responsive-md" style="width: 100%">
+  <div class="table table-hover main" style="width: 100%">
+    <thead style="width: 100%" class="fs-2">
+      <tr>
+        <th scope="col">Order_Id</th>
+        <th scope="col">Book_name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Payment_Method</th>
+        <th scope="col">Order_Status</th>
+        <th scope="col">Action</th>
+
+      </tr>
+    </thead>
+    <tbody *ngFor="let data of myOrders" class="fs-5 text-wrap">
+      <tr align="center">
+        <th scope="row">{{ data._id }}</th>
+        <td>{{ data.name }}</td>
+        <td>{{ data.price }}</td>
+        <td>{{ data.quantity }}</td>
+        <td>{{ data.payment_method }}</td>
+        <td>{{ data.status ? "Delivered" : "Shipped" }}</td>
+        <td><button class="btn btn-info" (click)="updateOrder(data._id)">Update</button></td>
+      </tr>
+    </tbody>
+  </div>
+</div>

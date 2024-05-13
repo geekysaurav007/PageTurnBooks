@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { OrderService } from '../../services/order.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-my-orders',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './my-orders.component.html',
   styleUrl: './my-orders.component.css'
 })
@@ -18,8 +19,10 @@ export class MyOrdersComponent implements OnInit{
   }
  getMyOrders(id:string|null){
   this.orderservice.getMyOrders().subscribe((res:any)=>{
-    this.myOrders=res
-    // store in array vand itertate
+    this.myOrders=res.data
   }) 
+ }
+ updateOrder(id:string){
+  alert(`order id:${id}`)
  }
 }

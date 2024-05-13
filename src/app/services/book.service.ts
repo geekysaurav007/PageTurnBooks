@@ -12,6 +12,11 @@ export class BookService {
       'https://e-commerce-bookstore-iom7.onrender.com/api/books/allbooks'
     );
   }
+  getAllBook(){
+     this.http.get(
+      'https://e-commerce-bookstore-iom7.onrender.com/api/books/allbooks'
+    )
+  }
   getImage(data:string){
     return this.http.get(`https://e-commerce-bookstore-iom7.onrender.com/api/images/${data}`)
   }
