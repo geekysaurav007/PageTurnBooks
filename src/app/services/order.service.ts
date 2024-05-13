@@ -16,7 +16,6 @@ export class OrderService {
     );
   }
   updateMyOrder( data: any) {
-    console.warn(data._id)
     return this.http.put(`${this.base_url}order/update/${data._id}`, data, {
       headers: this.getHeaders(),
     });
@@ -24,7 +23,6 @@ export class OrderService {
 
   getHeaders(): HttpHeaders {
     const token: string | null = localStorage.getItem('token');
-    console.log(token);
     console.log('Bearer ' + token);
     return new HttpHeaders().set('Authorization', 'Bearer ' + token);
   }

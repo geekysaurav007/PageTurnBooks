@@ -6,18 +6,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BookService {
   constructor(private http: HttpClient) {}
-  public baseUrl='https://e-commerce-bookstore-iom7.onrender.com/api'
+  public baseUrl = 'https://e-commerce-bookstore-iom7.onrender.com/api';
   getAllBooks() {
     return this.http.get(
       'https://e-commerce-bookstore-iom7.onrender.com/api/books/allbooks'
     );
   }
-  getAllBook(){
-     this.http.get(
+  getAllBook() {
+    this.http.get(
       'https://e-commerce-bookstore-iom7.onrender.com/api/books/allbooks'
-    )
+    );
   }
-  getImage(data:string){
-    return this.http.get(`https://e-commerce-bookstore-iom7.onrender.com/api/images/${data}`)
+  getImage(data: string) {
+    return this.http.get(
+      `https://e-commerce-bookstore-iom7.onrender.com/api/images/${data}`
+    );
   }
 }

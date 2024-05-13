@@ -5,6 +5,7 @@
         <th scope="col">Order_Id</th>
         <th scope="col">Book_name</th>
         <th scope="col">Price</th>
+        <th scope="col">Total_Price</th>
         <th scope="col">Quantity</th>
         <th scope="col">Payment_Method</th>
         <th scope="col">Order_Status</th>
@@ -16,6 +17,7 @@
         <th scope="row">{{ data._id }}</th>
         <td>{{ data.name }}</td>
         <td>{{ data.price }}</td>
+        <td>{{data.price*data.quantity}}</td>
         <td>{{ data.quantity }}</td>
         <td>{{ data.payment_method }}</td>
         <td>{{ data.status ? "Delivered" : "Shipped" }}</td>
