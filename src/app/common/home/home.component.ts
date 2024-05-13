@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
     this.loadCart();
   }
   addToCart(data: any) {
-    alert(`Item added in cart:${data.name}`)
+    alert(`Item added in cart:${data.name}`);
     this.cartservice.addToCart(data);
     this.loadCart();
   }
