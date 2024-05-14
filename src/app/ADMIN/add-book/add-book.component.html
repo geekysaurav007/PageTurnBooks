@@ -1,0 +1,116 @@
+<!-- name publishDate price category productImage -->
+<section
+  class="d-flex flex-column justify-content-between align-items-center"
+>
+  <div class="col-lg-12 col-sm-12">
+    <div class="mb-3">
+      <h3 class="text-center fw-bolder">Create Book Form</h3>
+      <hr class="m-1" />
+    </div>
+  </div>
+  <form
+    [formGroup]="createBook"
+    (ngSubmit)="addBook(createBook.value)"
+    class="mt-3 mb-3"
+  >
+    <div
+      class="row d-flex d-flex flex-column column-gap-3 mb-3 justify-content-between align-items-center"
+    >
+      <div class="col-lg-12">
+        <div class="mb-3">
+          <label for="Bookname" class="form-label">Enter Book name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="Bookname"
+            placeholder="Enter Book name"
+            formControlName="name"
+          />
+          <span
+            class="text-center"
+            style="color: red"
+            *ngIf="createBook.get('name')?.invalid"
+            >Enter Book name
+          </span>
+        </div>
+        <div class="mb-3">
+          <label for="Price" class="form-label">Price</label>
+          <input
+            type="text"
+            class="form-control"
+            id="Price"
+            placeholder="Enter Price"
+            formControlName="price"
+          />
+          <span
+            class="text-center"
+            style="color: red"
+            *ngIf="createBook.get('price')?.invalid"
+            >enter Price
+          </span>
+        </div>
+        <div class="mb-3">
+          <label for="Category" class="form-label">Category</label>
+          <input
+            type="text"
+            class="form-control"
+            id="Category"
+            placeholder="Enter Price"
+            formControlName="category"
+          />
+          <span
+            class="text-center"
+            style="color: red"
+            *ngIf="createBook.get('category')?.invalid"
+            >enter category
+          </span>
+        </div>
+        <div class="mb-3">
+          <label for="PublishDate" class="form-label">publishDate</label>
+          <input
+            type="date"
+            class="form-control"
+            id="PublishDate"
+            placeholder="Enter PublishDate"
+            formControlName="publishDate"
+          />
+          <span
+            class="text-center"
+            style="color: red"
+            *ngIf="createBook.get('publishdate')?.invalid"
+            >enter PublishDate
+          </span>
+        </div>
+        <div class="mb-3">
+            <label for="Image" class="form-label">Image</label>
+            <input
+              type="file"
+              class="form-control"
+              id="Image"
+              placeholder="Enter PublishDate"
+              formControlName="image"
+              (change)="onFileSelect($event)"
+            />
+            <span
+              class="text-center"
+              style="color: red"
+              *ngIf="createBook.get('image')?.invalid"
+              >enter Image file
+            </span>
+          </div>
+      </div>
+
+      <div class="col-lg-12 col-sm-12">
+        <div class="mb-3">
+          <button
+            type="submit"
+            class="btn btn-info"
+            [disabled]="createBook.invalid"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>

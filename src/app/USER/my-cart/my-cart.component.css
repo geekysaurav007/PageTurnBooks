@@ -12,9 +12,12 @@
 svg:hover {
     cursor: pointer;
 }
-.image{
-    width: 200px; /* Set the width of each card */
-    height: 200px; /* Set the height of each card */
+
+.image {
+    width: 200px;
+    /* Set the width of each card */
+    height: 200px;
+    /* Set the height of each card */
     border-radius: 8px;
     overflow: hidden;
     margin: 10px;

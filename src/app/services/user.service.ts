@@ -11,6 +11,7 @@ import SignUp from '../dataTypes/signup';
 })
 export class UserService {
   public isUser: any;
+  public isAdmin:any
   public isLoogedIn: any;
   public myCart: any = [];
   constructor(
@@ -36,6 +37,14 @@ export class UserService {
           this.isLoogedIn = true;
           this.router.navigate(['/home']);
         }
+        if(data?.isAdmin=='true'){
+          localStorage.setItem('admin', 'true');
+          localStorage.setItem('id', data.id);
+          localStorage.setItem('isLoggedin', 'true');
+          localStorage.setItem('token', res.token);
+          this.isAdmin=true
+          this.router.navigate(['/addbook'])
+        }
       });
   }
   reloadUser() {
@@ -43,6 +52,13 @@ export class UserService {
       this.isUser = true;
       this.isLoogedIn = true;
       this.router.navigate(['/home']);
+    }
+  }
+  reloadAdmin(){
+    if(localStorage.getItem('admin')=='true'){
+      this.isAdmin=true
+      this.isLoogedIn=true
+      this.router.navigate(['/addbook'])
     }
   }
   singnUp(data: SignUp) {
