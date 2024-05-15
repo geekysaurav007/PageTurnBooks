@@ -14,12 +14,20 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: '', component: HomeComponent },
   { path: 'signUp', component: SignUpComponent },
-  { path: 'my-cart', component: MyCartComponent, canActivate: [authGuard,adminAuthGuard] },
+  {
+    path: 'my-cart',
+    component: MyCartComponent,
+    canActivate: [authGuard, adminAuthGuard],
+  },
   { path: 'confirm', component: ThankYouComponent, canActivate: [authGuard] },
   {
     path: 'myorder/:id',
     component: MyOrdersComponent,
     canActivate: [authGuard],
   },
-  { path: 'addbook', component: AddBookComponent,canActivate:[adminAuthGuard] },
+  {
+    path: 'addbook',
+    component: AddBookComponent,
+    canActivate: [adminAuthGuard],
+  },
 ];
