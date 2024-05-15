@@ -7,18 +7,19 @@ import { ThankYouComponent } from './common/thank-you/thank-you.component';
 import { MyOrdersComponent } from './USER/my-orders/my-orders.component';
 import { authGuard } from './Guards/auth.guard';
 import { AddBookComponent } from './ADMIN/add-book/add-book.component';
+import { adminAuthGuard } from './Guards/admin-auth.guard';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: '', component: HomeComponent },
   { path: 'signUp', component: SignUpComponent },
-  { path: 'my-cart', component: MyCartComponent, canActivate: [authGuard] },
+  { path: 'my-cart', component: MyCartComponent, canActivate: [authGuard,adminAuthGuard] },
   { path: 'confirm', component: ThankYouComponent, canActivate: [authGuard] },
   {
     path: 'myorder/:id',
     component: MyOrdersComponent,
     canActivate: [authGuard],
   },
-  { path: 'addbook', component: AddBookComponent },
+  { path: 'addbook', component: AddBookComponent,canActivate:[adminAuthGuard] },
 ];
