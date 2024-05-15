@@ -31,5 +31,9 @@ export const routes: Routes = [
     component: AddBookComponent,
     canActivate: [adminAuthGuard],
   },
-  { path: 'allorder', component: AllOrderComponent },
+  {
+    path: 'allorder',
+    component: AllOrderComponent,
+    canActivate: [adminAuthGuard],
+  },
 ];

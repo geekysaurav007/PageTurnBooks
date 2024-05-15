@@ -29,11 +29,7 @@ export class HomeComponent implements OnInit {
   getAllBooks() {
     this.bookservice.getAllBooks().subscribe((result: any) => {
       this.allBooks = result.result;
-      console.log(this.allBooks);
-    }),
-      (error: any) => {
-        console.warn(error);
-      };
+    })
   }
   loadCart() {
     this.myCart = this.cartservice.getCartItems();

@@ -27,7 +27,6 @@ export class UserService {
       )
       .subscribe((res: any) => {
         let data: any = jwt_decode.jwtDecode(res.token);
-        console.warn(data);
         if (data?.isAdmin == 'false') {
           localStorage.setItem('user', 'true');
           localStorage.setItem('id', data.id);

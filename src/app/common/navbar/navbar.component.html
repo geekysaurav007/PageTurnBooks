@@ -3,7 +3,9 @@
   aria-label="user"
 >
   <div class="container">
-    <a class="navbar-brand text-white fs-1 fw-bold text-monospace" href="#">PageTurnBooks</a>
+    <a class="navbar-brand text-white fs-1 fw-bold text-monospace" href="#"
+      >PageTurnBooks</a
+    >
     <button
       class="navbar-toggler"
       type="button"
@@ -24,65 +26,29 @@
         <li class="nav-item">
           <a class="nav-link text-white" href="home">Home</a>
         </li>
-        <li class="nav-item"  *ngIf="!isUserLoggedIn()">
+        <li class="nav-item" *ngIf="!isUserLoggedIn() && !isAdminLoggedIn()">
           <a class="nav-link text-white" href="login">Login</a>
         </li>
-        <li class="nav-item" >
+        <li class="nav-item" *ngIf="!isUserLoggedIn()">
           <a class="nav-link text-white" href="signUp">SignUp</a>
         </li>
-        <li class="nav-item" *ngIf="isUserLoggedIn()">
+        <li class="nav-item" *ngIf="isUserLoggedIn() || isAdminLoggedIn()">
           <a class="nav-link text-white" (click)="signOut()">signOut</a>
         </li>
         <li class="nav-item" *ngIf="isUserLoggedIn()">
           <a class="nav-link text-white" (click)="myCart()">MyCart</a>
         </li>
+        <li class="nav-item" *ngIf="isAdminLoggedIn()">
+          <a class="nav-link text-white" (click)="getAllOrders()">AllOrders</a>
+        </li>
         <li class="nav-item" *ngIf="isUserLoggedIn()">
           <a class="nav-link text-white" (click)="myOrders()">MyOrders</a>
         </li>
-        <!-- <li class="nav-item" *ngIf="isUserLoggedIn()">
-          <a class="nav-link text-white">myCart({{this.cartservice.currentCartLength}})</a>
-        </li> -->
-      </ul>
-    </div>
-  </div>
-</nav>
-<!--admin navbar  -->
-<nav
-  class="navbar navbar-expand-lg bg-dark pt-sm-aut0 py-2 pt-lg-3"
-  *ngIf="isAdmin"
-  aria-label="admin"
->
-  <div class="container">
-    <a class="navbar-brand text-white" href="#">Saurav Ranjan</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-      style="color: beige"
-    >
-      <span class="navbar-toggler-icon" id="dots"></span>
-    </button>
-    <div
-      class="collapse navbar-collapse dog text-white"
-      id="navbarSupportedContent"
-    >
-      <ul class="navbar-nav text-white ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#home">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#project" routerLink="/login"
-            >ogin</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#service">Services</a>
+        <li class="nav-item" *ngIf="isAdminLoggedIn()">
+          <a class="nav-link text-white" (click)="createOrder()">createOrder</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+

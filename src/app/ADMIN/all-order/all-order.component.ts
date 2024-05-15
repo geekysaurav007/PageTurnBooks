@@ -8,18 +8,29 @@ import { OrderService } from '../../services/order.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './all-order.component.html',
-  styleUrl: './all-order.component.css'
+  styleUrl: './all-order.component.css',
 })
 export class AllOrderComponent implements OnInit {
-  all_orders:any=[]
-  constructor(private orderservice:OrderService){}
+  all_orders: any = [];
+  constructor(private orderservice: OrderService) {}
   ngOnInit(): void {
-    this.getAllOrders()
+    this.getAllOrders();
   }
-  getAllOrders(){
-    this.orderservice.getAllOrders().subscribe((res:any)=>{
-      this.all_orders=res
-      console.warn(this.all_orders)
+  getAllOrders() {
+    this.orderservice.getAllOrders().subscribe((res: any) => {
+      this.all_orders = res.result;
+    });
+  }
+  toggleStatus(id:string){
+    this.all_orders.filter((data:any)=>{
+      if(data._id==id && data.status==false){
+        data.status=true
+        alert(`Status Changed`)
+      }
+      else{
+        data.status=false
+        alert(`Status Changed`)
+      }
     })
   }
 }

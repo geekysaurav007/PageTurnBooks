@@ -28,7 +28,7 @@ export class NavbarComponent {
     this.routerHelper.navigate(['/login']);
   }
   isUserLoggedIn(): boolean {
-    if (localStorage.getItem('isLoggedin') == 'true') {
+    if (localStorage.getItem('user') == 'true') {
       return true;
     } else {
       return false;
@@ -43,8 +43,21 @@ export class NavbarComponent {
       alert(`No Items in Cart`);
     }
   }
-  myOrders(){
-    let id=localStorage.getItem('id')
-    this.routerHelper.navigate([`myorder/${id}`])
+  myOrders() {
+    let id = localStorage.getItem('id');
+    this.routerHelper.navigate([`myorder/${id}`]);
+  }
+  isAdminLoggedIn(): boolean {
+    if (localStorage.getItem('admin') == 'true') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  getAllOrders(){
+    this.routerHelper.navigate(['/allorder'])
+  }
+  createOrder(){
+    this.routerHelper.navigate(['/addbook'])
   }
 }
