@@ -8,6 +8,7 @@ import { MyOrdersComponent } from './USER/my-orders/my-orders.component';
 import { authGuard } from './Guards/auth.guard';
 import { AddBookComponent } from './ADMIN/add-book/add-book.component';
 import { adminAuthGuard } from './Guards/admin-auth.guard';
+import { AllOrderComponent } from './ADMIN/all-order/all-order.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -17,7 +18,7 @@ export const routes: Routes = [
   {
     path: 'my-cart',
     component: MyCartComponent,
-    canActivate: [authGuard, adminAuthGuard],
+    canActivate: [authGuard],
   },
   { path: 'confirm', component: ThankYouComponent, canActivate: [authGuard] },
   {
@@ -30,4 +31,5 @@ export const routes: Routes = [
     component: AddBookComponent,
     canActivate: [adminAuthGuard],
   },
+  { path: 'allorder', component: AllOrderComponent },
 ];

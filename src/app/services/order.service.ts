@@ -26,6 +26,9 @@ export class OrderService {
     console.log('Bearer ' + token);
     return new HttpHeaders().set('Authorization', 'Bearer ' + token);
   }
+  getAllOrders(){
+    return this.http.get(`${this.base_url}/order/allorders`)
+  }
 
   getMyOrders() {
     return this.http.get(`${this.base_url}order/myorders`, {
