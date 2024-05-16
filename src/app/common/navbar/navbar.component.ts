@@ -57,7 +57,7 @@ export class NavbarComponent {
   getAllOrders(){
     this.routerHelper.navigate(['/allorder'])
   }
-  createOrder(){
+  createBook(){
     this.routerHelper.navigate(['/addbook'])
   }
 }

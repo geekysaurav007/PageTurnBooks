@@ -1,4 +1,14 @@
-<section>
+<div class="mb-1 mt-2 d-flex align-items-center justify-content-center">
+  <input
+    type="text"
+    class="form-control"
+    id="search"
+    aria-describedby="emailHelp"
+    style="width: 40%; height: 4rem"
+    placeholder="Search By Book Name"
+  />
+</div>
+<section class="m-2">
   <div class="container text-center py-1">
     <div class="row g-5">
       <div
@@ -17,7 +27,7 @@
               class="d-md-block img-fluid m-1 p-1"
               width="40px"
               lazy
-              src="{{ bookservice.baseUrl }}/images/{{ item.productImage }}"
+              src="{{ bookservice.baseUrl }}/{{ item.productImage }}"
             />
             <button
               class="btn btn-outline-info mt-1 mb-1 text-wrap"
@@ -29,34 +39,34 @@
               class="btn btn-outline-danger text-wrap mt-1 mb-1"
               (click)="clearCart()"
             >
-             ClearCart
+              ClearCart
             </button>
           </div>
           <div>
-            <p class="text-capitalize text-sm fw-light m-2 p-3 common-text">
+            <p class="text-capitalize text-sm fw-light m-2 p-2 common-text">
               Name:
             </p>
-            <p class="text-capitalize fw-light m-2 p-3 common-text">Price:</p>
-            <p class="text-capitalize fw-light m-2 p-3 common-text">
+            <p class="text-capitalize fw-light m-2 p-2 common-text">Price:</p>
+            <p class="text-capitalize fw-light m-2 p-2 common-text">
               publishDate:
             </p>
-            <p class="text-capitalize fw-light m-2 p-3 common-text">
+            <p class="text-capitalize fw-light m-2 p-2 common-text">
               Category_name:
             </p>
           </div>
           <div>
             <h6
-              class="m-2 p-3 text-uppercase fw-bolder text-sm sm-auto common-text"
+              class="m-2 p-2 text-uppercase fw-bolder text-sm sm-auto common-text"
             >
               {{ item.name }}
             </h6>
-            <h6 class="m-2 p-3 sm-auto fs-6 common-text">
+            <h6 class="m-2 p-2 sm-auto fs-6 common-text">
               {{ item.price }}
             </h6>
-            <h6 class="m-2 p-3 sm-auto text-sm fs-6 common-text">
+            <h6 class="m-2 p-2 sm-auto text-sm fs-6 common-text">
               {{ item.publishDate }}
             </h6>
-            <h6 class="m-2 p-3 font-monospace fs-6 fw-bolder common-text">
+            <h6 class="m-2 p-2 font-monospace fs-6 fw-bolder common-text">
               {{ item.category.name }}
             </h6>
           </div>
