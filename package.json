@@ -6,8 +6,7 @@
     "start": "ng serve --host 0.0.0.0",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:Book_store_frontend": "node dist/book-store-frontend/server/server.mjs"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
