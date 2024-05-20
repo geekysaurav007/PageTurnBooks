@@ -15,7 +15,7 @@ export class AllOrderComponent implements OnInit {
   constructor(private orderservice: OrderService) {}
   ngOnInit(): void {
     this.getAllOrders();
-  }
+   }
   getAllOrders() {
     this.orderservice.getAllOrders().subscribe((res: any) => {
       this.all_orders = res.result;
